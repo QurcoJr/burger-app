@@ -35,10 +35,10 @@ class BurgerBuilder extends Component {
   };
 
   addIngredientHandler = type => {
-    const updatedCont = this.state.ingredients[type] + 1;
+    const updatedCount = this.state.ingredients[type] + 1;
     const updatedIngredient = {
       ...this.state.ingredients,
-      [type]: updatedCont
+      [type]: updatedCount
     };
     const priceAddition = INGREDIENT_PRICES[type];
     const newPrice = this.state.totalPrice + priceAddition;
@@ -95,8 +95,7 @@ class BurgerBuilder extends Component {
       <>
         <Modal
           show={this.state.purchasing}
-          modalClosed={this.purchaseCancelHandler}
-        >
+          modalClosed={this.purchaseCancelHandler}>
           <OrderSummary
             ingredients={this.state.ingredients}
             purchaseCanceled={this.purchaseCancelHandler}
